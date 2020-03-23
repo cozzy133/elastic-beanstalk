@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Padraig & Paulina's Cloud Computing Project 2020!</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="<%= static_path + "/bootstrap/css/theme/" + theme + "/bootstrap.css" %>" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="<%= static_path + "/bootstrap/css/jumbotron-narrow.css" %>" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/press">Press</a></li>
+        </ul>
+        <h3 class="text-muted">A New Startup</h3>
+      </div>
+	  <% if (flask_debug === 'true') { %>
+      <div class="alert alert-danger">
+      	Flask is in debug mode. This is not safe for production.
+      </div>
+      <% } %>
+      <div id="blogCloseSuccess" class="alert alert-success" style="display:none">
+        <p id="signupSuccessText">Thanks for being so keen on the blog information!</p>
+      </div>
+      <div class="jumbotron">
+        <h1>Press</h1>
+        <p class="lead">Explore our Cloud Computing final year project.</p>
+        <p><a class="btn btn-lg btn-success"  data-toggle="modal" href="#blogModal">Click for more information!</a></p>
+      </div>
+
+
+      <div class="footer">
+        <p>&copy; Cloud Computing GMIT 2020</p>
+      </div>
+      
+      <!-- Modal -->
+       <div class="modal fade" id="blogModal" tabindex="-1" role="dialog" aria-labelledby="blogModal" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               <h4 class="modal-title">You're keen!</h4>
+             </div>
+             <div class="modal-body">
+                <p> This is where we'll put more information. <br>
+                Lorem ipsum <br>
+                #1#2#3#4 <br>
+              </p>
+             </div>
+             <div class="modal-footer">
+               <button id="blogClose" type="button" class="btn btn-primary">Close!</button>
+             </div>
+           </div><!-- /.modal-content -->
+         </div><!-- /.modal-dialog -->
+       </div><!-- /.modal -->
+
+    </div> <!-- /container -->
+
+    <script src="<%= static_path + "/jquery/jquery-1.11.3.min.js" %>"></script>
+    <script src="<%= static_path + "/bootstrap/js/bootstrap.min.js" %>"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $("#blogClose").click(function() {
+              .always(function() {
+                $("#blogModal").modal('hide');
+              });
+              .always(function() {
+                $("#blogCloseSuccess").modal('show');
+              });
+      })
+    })
+    </script>
+  </body>
+</html>
